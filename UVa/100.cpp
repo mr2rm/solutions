@@ -4,7 +4,6 @@ using namespace std;
 
 int main ()
 {
-	freopen ( "The 3n+1 Problem.in" , "r" , stdin );
 	int i , j;
 	int counter , temp , Result;
 	while ( cin >> i >> j )
