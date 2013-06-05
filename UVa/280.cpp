@@ -4,6 +4,47 @@
 
 using namespace std;
 
+/*
+int n, s, x, t, cnt;
+int mat[110][110], mark[110];
+
+void dfs (int node)
+{
+	for (int I = 1; I <= n; I++)
+		if (mat[node][I] && !mark[I])
+		{
+			cnt++;
+			mark[I] = 1;
+			dfs (I);
+		}
+}
+
+int main ()
+{
+	while (cin >> n && n)
+	{
+		memset (mat, 0, sizeof mat);
+		while (cin >> s && s)
+			while (cin >> x && x)
+				mat[s][x] = 1;
+		cin >> t;
+		for (int I = 0; I < t && cin >> x; I++)
+		{
+			memset (mark, 0, sizeof mark);
+			cnt = 0;
+			dfs (x);
+			cnt = n - cnt;
+			cout << cnt;
+			for (int J = 1; J <= n; J++)
+				if (!mark[J])
+					cout << " " << J;
+			cout << endl;
+		}
+	}
+	return 0;
+}
+*/
+
 int mat[101][101];
 int mark[101];
 int n, r, o, c, t;

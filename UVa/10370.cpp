@@ -1,4 +1,31 @@
 #include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+int main ()
+{
+	int c, n, cnt, sum;
+	double avg, res;
+	int stu[1000];
+	cin >> c;
+	for (int I = 0; I < c && cin >> n; I++)
+	{
+		cnt = sum = 0;
+		for (int J = 0; J < n && cin >> stu[J]; J++)
+			sum += stu[J];
+		avg = (double)sum / n;
+		for (int J = 0; J < n; J++)
+			if ((double)stu[J] > avg)
+				cnt++;
+		res = (double)cnt*100. / n;
+		printf ("%.3f%\n", res);
+	}
+	return 0;
+}
+
+/*
+#include <iostream>
 #include <cmath>
 #include <vector> 
 
@@ -40,3 +67,4 @@ int main()
 	}
 	return 0;
 }
+*/

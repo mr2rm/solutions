@@ -1,4 +1,53 @@
 #include <iostream>
+#include <string>
+#include <map>
+#include <cstdio>
+
+using namespace std;
+
+int t, f;
+string s1, s2;
+map <string, string> par;
+map <string, int> cnt;
+
+string find (string str)
+{
+	if (par[str] == str)	return str;
+	return par[str] = find (par[str]);
+}
+
+int main ()
+{
+	for (cin >> t; t && cin >> f; t--)
+	{
+		par.clear();
+		cnt.clear();
+		for (int I = 0; I < f; I++)
+		{
+			cin >> s1 >> s2;
+			if (par[s1] == "")
+			{
+				par[s1] = s1;
+				cnt[s1] = 1;
+			}
+			if (par[s2] == "")
+			{
+				par[s2] = s2;
+				cnt[s2] = 1;
+			}
+			if (find(s1) != find(s2))
+			{
+				cnt[find(s1)] += cnt[find(s2)];
+				par[find(s2)] = find(s1);
+			}
+			printf ("%d\n", cnt[find(s1)]);
+		}
+	}
+	return 0;
+}
+
+/*
+#include <iostream>
 #include <map>
 #include <string>
 #include <vector>
@@ -62,3 +111,4 @@ int main()
 	
 	return 0;
 }
+*/

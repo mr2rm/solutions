@@ -2,18 +2,18 @@
 
 using namespace std;
 
-int f91 ( int t )
+int f91 (int x)
 {
-    if ( t >= 101 )
-        return t-10;
-    else
-        f91 ( f91( t + 11 ) );
+	if (x >= 101)
+		return x-10;
+	else
+		return f91(f91(x+11));
 }
 
 int main ()
 {
-    int n;
-    while ( cin >> n && n != 0 )
-        cout << "f91(" << n << ") = " << f91 ( n ) << endl;
-    return 0;
+	int n;
+	while (cin >> n && n)
+		cout << "f91(" << n << ") = " << f91(n) << endl; 
+	return 0;
 }

@@ -1,12 +1,68 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
+#include <algorithm>
 
 using namespace std;
 
+/*
+map <char, char> mp;
+
+bool palin (string str)
+{
+	string s = str;
+	reverse (s.begin(), s.end());
+	if (s == str)
+		return true;
+	return false;
+}
+
+bool mirror (string str)
+{
+	int sz = str.length();
+	int mid = sz / 2;
+	if (sz % 2)
+	{
+		if (mp[str[mid]] == ' ')
+			return false;
+		str[mid] = mp[str[mid]];
+	}
+	for (int I = 0; I < mid; I++)
+		str[I] = mp[str[I]];
+	return palin (str);
+}
+
+
 int main ()
 {
-	freopen ( "Palindromes.in" , "r" , stdin );
+	string s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+	string s2 = "A   3  HIL JM O   2TUVWXY51SE Z  8 ";
+	for (int I = 0; I < 35; I++)
+		mp[s1[I]] = s2[I];
+	string str, s;
+	bool b1, b2;
+	while (cin >> str)
+	{
+		b1 = palin (str);
+		b2 = mirror (str);
+		cout << str;
+		if (b1 && b2)
+			cout << " -- is a mirrored palindrome.";
+		else if (b1)
+			cout << " -- is a regular palindrome.";
+		else if (b2)
+			cout << " -- is a mirrored string.";
+		else
+			cout << " -- is not a palindrome.";
+		cout << endl << endl;
+	}
+	return 0;
+}
+*/
+
+int main ()
+{
 	string str;
 	int size , temp;
 	string Org ( "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789" );

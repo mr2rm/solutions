@@ -1,48 +1,50 @@
 #include <iostream>
 #include <string>
-#include <queue>
 #include <utility>
+#include <queue>
 #include <cstring>
 
 using namespace std;
 
-string s1, s2;
-int mat[8][8];
-int dir[8][2] = { {-1, 2}, {1, 2}, {-1, -2}, {1, -2}, {-2, 1}, {-2, -1}, {2, 1}, {2, -1} };
-pair <int, int> start;
-pair <int, int> end;
+pair <int, int> start, end;
+int dir[8][2] = {{-1, 2}, {-1, -2}, {1, 2}, {1, -2}, {-2, 1}, {-2, -1}, {2, 1}, {2, -1}};
+int mark[8][8];
+
 void bfs ()
 {
-    mat[start.first][start.second] = 0;
     queue < pair <int, int> > q;
     q.push (start);
-    while (mat[end.first][end.second] == -1)
+    mark[start.first][start.second] = 0;
+    while (!q.empty())
     {
-        pair <int, int> t;
-        t = q.front();
-        q.pop ();
-        for (int i = 0; i < 8; i++)
+        pair <int, int> p = q.front();
+        q.pop();
+        if (p == end)
+            return;
+        for (int I = 0; I < 8; I++)
         {
-            int x = t.first + dir[i][0];
-            int y = t.second + dir[i][1];
-            if (x >= 0 && x < 8 && y >= 0 && y < 8 && mat[x][y] == -1)
+            int tx = dir[I][0] + p.first;
+            int ty = dir[I][1] + p.second;
+            if (tx >= 0 && tx < 8 && ty >= 0 && ty < 8 && mark[tx][ty] < 0)
             {
-                mat[x][y] = mat[t.first][t.second] + 1;
-                q.push (make_pair (x, y));
+                mark[tx][ty] = mark[p.first][p.second]+1;
+                q.push(make_pair(tx, ty));
             }
         }
     }
 }
-int main()
+int main ()
 {
-    while (cin >> s1 >> s2)
+    string s, e;
+    while (cin >> s >> e)
     {
-        for (int i = 0; i < 8; i++)
-            memset (mat[i], -1, sizeof mat[i]);
-        end.first = s2[0]-'a';  end.second = s2[1]-'1';
-        start.first = s1[0]-'a';    start.second = s1[1]-'1';
+        memset (mark, -1, sizeof mark);
+        start.first = (s[1]-'0'-1); 
+        start.second = (s[0]-'a');
+        end.first = (e[1]-'0'-1);
+        end.second = (e[0]-'a');
         bfs ();
-        cout << "To get from " << s1 << " to " << s2 << " takes " << mat[end.first][end.second] << " knight moves." << endl;
+        cout << "To get from " << s << " to " << e << " takes " << mark[end.first][end.second] << " knight moves." << endl;
     }
     return 0;
 }
