@@ -1,0 +1,5 @@
+n, k = map(int, input().split())
+jams = sum(map(int, input().split()))
+jars, rem = divmod(jams, k)
+res = jars + int(bool(rem))
+print(n - res)
