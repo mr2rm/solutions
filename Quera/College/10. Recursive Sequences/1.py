@@ -53,4 +53,4 @@ print(f'gcd({x}, {y}) = {result}')
 
 x, y = 2, 5
 print(f'prt({x}, {y}):')
-result = prt(x, y)
+prt(x, y)
