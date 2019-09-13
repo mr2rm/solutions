@@ -27,18 +27,35 @@ def next_fib():
         i += 1
 
 
-# def precomputed_fib(n):
-#     global fib_mem
-#     fib_mem[0] = fib_mem[1] = 1
-#     for i in range(2, 21):
-#         fib_mem[i] = fib_mem[i - 1] + fib_mem[i - 2]
+def precompute_fib(n):
+    global mem_fib
+    mem_fib[0] = mem_fib[1] = 1
+    for i in range(2, n + 1):
+        mem_fib[i] = mem_fib[i - 1] + mem_fib[i - 2]
 
 
 n, res = int(input()), ''
 
+# needed for precompute_fib and memoized_fib
 mem_fib = [-1] * 21
-get_fib, latest_fib = next_fib(), -1
+# precompute_fib(20)
 
+# loop over numbers and check if in precomputed fibs
+# index = 0
+# for i in range(1, n + 1):
+#     # res += '+' if i in mem_fib else '-'
+#     while mem_fib[index] < i:
+#         index += 1
+#     res += '+' if mem_fib[index] == i else '-'
+
+# attach precomputed fibs
+# for i in range(1, 21):
+#     x = mem_fib[i] - mem_fib[i - 1] - 1
+#     res += ('-' * x) + '+'
+# res = res[:n]
+
+# loop over numbers and compare each to next fib
+get_fib, latest_fib = next_fib(), -1
 for i in range(1, n + 1):
     while latest_fib < i:
         latest_fib = next(get_fib)
