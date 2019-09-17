@@ -1,4 +1,5 @@
 def f(seq):
+    global n
     if seq[-3:] == '000':
         return 0
     if len(seq) == n:
