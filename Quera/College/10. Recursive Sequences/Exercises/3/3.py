@@ -6,6 +6,15 @@ def f(seq):
     return f(seq + '0') + f(seq + '1')
 
 
+def solve(x):
+    if x <= 2:
+        return 2 ** x
+    return solve(x - 1) + solve(x - 2) + solve(x - 3)
+
+
 n = int(input())
-res = f('')
+
+# res = f('')
+res = solve(n)
+
 print(res)
