@@ -1,3 +1,4 @@
+# TLE
 n, m = map(int, input().split())
 
 mat = []
