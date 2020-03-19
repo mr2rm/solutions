@@ -1,27 +1,48 @@
-n = int(input())
+#!/bin/python3
 
-for _ in range(n):
-    s = input()
+import math
+import os
+import random
+import re
+import sys
 
-    max_char = t = s[-1]
+
+def biggerIsGreater(w):
+    max_char = s = w[-1]
     char_index = [-1] * 128
-    char_index[ord(s[-1])] = 0
+    char_index[ord(w[-1])] = 0
 
     res = None
-    for i in range(len(s) - 2, -1, -1):
-        c = s[i]
+    for i in range(len(w) - 2, -1, -1):
+        c = w[i]
         if c < max_char:
             for j in range(ord(c) + 1, ord(max_char) + 1):
                 idx = char_index[j]
                 if idx != -1:
-                    lt = list(t)
+                    lt = list(s)
                     lt[idx] = c
-                    res = s[:i] + t[idx] + ''.join(sorted(lt))
+                    res = w[:i] + s[idx] + ''.join(sorted(lt))
                     break
             break
 
         max_char = c
-        char_index[ord(c)] = len(t)
-        t += c
+        char_index[ord(c)] = len(s)
+        s += c
 
-    print(res or 'no answer')
+    res = res or 'no answer'
+    return res
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    T = int(input())
+
+    for T_itr in range(T):
+        w = input()
+
+        result = biggerIsGreater(w)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
