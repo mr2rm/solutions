@@ -6,7 +6,7 @@ import random
 import re
 import sys
 
-
+"""
 def biggerIsGreater(w):
     max_char = s = w[-1]
     char_index = [-1] * 128
@@ -31,6 +31,25 @@ def biggerIsGreater(w):
 
     res = res or 'no answer'
     return res
+"""
+
+
+def biggerIsGreater(w):
+    for i in reversed(range(len(w) - 1)):
+        if w[i] < w[i + 1]:
+            break
+    else:
+        return 'no answer'
+
+    for j in range(len(w) - 1, i, -1):
+        if w[j] > w[i]:
+            break
+
+    wl = list(w)
+    wl[i], wl[j] = wl[j], wl[i]
+    wl[i + 1:] = wl[-1:i:-1]
+
+    return ''.join(wl)
 
 
 if __name__ == '__main__':
