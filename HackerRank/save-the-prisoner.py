@@ -8,7 +8,7 @@ import sys
 
 
 def saveThePrisoner(n, m, s):
-    return (s - 2 + m) % n + 1
+    return (s - 1 + m - 1) % n + 1
 
 
 if __name__ == '__main__':
