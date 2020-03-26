@@ -1,3 +1,5 @@
 .vscode/
 *.pdf
 *.zip
+*.bin
+*.tcs
