@@ -2,5 +2,6 @@
 
 - [x] [bigger-is-greater](https://www.hackerrank.com/challenges/bigger-is-greater/problem)
 - [x] [save-the-prisoner](https://www.hackerrank.com/challenges/save-the-prisoner/problem)
+- [x] [Jumping_on_the_Clouds_Revisited](https://www.hackerrank.com/challenges/jumping-on-the-clouds-revisited/problem)
 
 [link]: https://www.hackerrank.com/
