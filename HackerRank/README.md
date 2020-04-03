@@ -4,5 +4,6 @@
 - [x] [Save_the_Prisoner](https://www.hackerrank.com/challenges/save-the-prisoner/problem)
 - [x] [Jumping_on_the_Clouds_Revisited](https://www.hackerrank.com/challenges/jumping-on-the-clouds-revisited/problem)
 - [x] [Strange_Counter](https://www.hackerrank.com/challenges/strange-code/problem)
+- [x] [Super_Reduced_String](https://www.hackerrank.com/challenges/reduced-string/problem)
 
 [link]: https://www.hackerrank.com/
