@@ -23,4 +23,4 @@ for tc in range(1, t + 1):
         col = [mat[i][j] for i in range(n)]
         c += int(has_repeated_value(col, n))
 
-    print(f"Case #{tc}: {k} {r} {c}")
+    print("Case #{}: {} {} {}".format(tc, k, r, c))
