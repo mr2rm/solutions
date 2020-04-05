@@ -5,5 +5,6 @@
 - [x] [Jumping_on_the_Clouds_Revisited](https://www.hackerrank.com/challenges/jumping-on-the-clouds-revisited/problem)
 - [x] [Strange_Counter](https://www.hackerrank.com/challenges/strange-code/problem)
 - [x] [Super_Reduced_String](https://www.hackerrank.com/challenges/reduced-string/problem)
+- [x] [CamelCase](https://www.hackerrank.com/challenges/camelcase/problem)
 
 [link]: https://www.hackerrank.com/
