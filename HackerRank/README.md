@@ -6,5 +6,6 @@
 - [x] [Strange_Counter](https://www.hackerrank.com/challenges/strange-code/problem)
 - [x] [Super_Reduced_String](https://www.hackerrank.com/challenges/reduced-string/problem)
 - [x] [CamelCase](https://www.hackerrank.com/challenges/camelcase/problem)
+- [x] [Sequence_Equation](https://www.hackerrank.com/challenges/permutation-equation/problem)
 
 [link]: https://www.hackerrank.com/
