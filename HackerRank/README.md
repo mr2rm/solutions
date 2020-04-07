@@ -7,5 +7,6 @@
 - [x] [Super_Reduced_String](https://www.hackerrank.com/challenges/reduced-string/problem)
 - [x] [CamelCase](https://www.hackerrank.com/challenges/camelcase/problem)
 - [x] [Sequence_Equation](https://www.hackerrank.com/challenges/permutation-equation/problem)
+- [x] [Insertion_Sort_Part_1](https://www.hackerrank.com/challenges/insertionsort1/problem)
 
 [link]: https://www.hackerrank.com/
