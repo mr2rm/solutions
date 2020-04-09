@@ -1,22 +1,22 @@
 <?php
-list($n, $m) = explode(' ', readline());
+[$n, $m] = explode(' ', readline());
 $markCount = array_fill(0, $n + 1, array_fill(0, $m + 1, 0));
 
-$score = array(0, 0);
+$score = [0, 0];
 $lineCount = 2 * $n * $m - $n - $m;
 
 $turn = 0;
 while ($lineCount--) {
     $cnt = 0;
-    list($a, $b, $c, $d) = explode(' ', readline());
+    [$a, $b, $c, $d] = explode(' ', readline());
     
     if ($a == $c) {
-        if ($b > $d) list($b, $d) = array($d, $b);
+        if ($b > $d) [$b, $d] = [$d, $b];
         $markCount[$a][$b]++; $markCount[$a - 1][$b]++;
         if ($markCount[$a][$b] == 4)                    $cnt++;
         if ($a > 1 && $markCount[$a - 1][$b] == 4)      $cnt++;
     } else {
-        if ($a > $c) list($a, $c) = array($c, $a);
+        if ($a > $c) [$a, $c] = [$c, $a];
         $markCount[$a][$b]++; $markCount[$a][$b - 1]++;
         if ($markCount[$a][$b] == 4)                    $cnt++;
         if ($b > 1 && $markCount[$a][$b - 1] == 4)      $cnt++;

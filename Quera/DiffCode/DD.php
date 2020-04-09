@@ -19,26 +19,26 @@ class Album {
 };
 
 $n = readline();
-list($_, $_, $userName) = explode(" ", readline());
+[$_, $_, $userName] = explode(" ", readline());
 
 $m = null;
 $users = [];
 while ($n--) {
     $user = new User($userName);
-    list($_, $user->age) = explode(" ", trim(readline()));
-    list($_, $user->city) = explode(" ", trim(readline()));
+    [$_, $user->age] = explode(" ", trim(readline()));
+    [$_, $user->city] = explode(" ", trim(readline()));
     
     $line = readline();
     while ($line = readline()) {
         if ($line[0] != " ")
             break;
-        list($_, $album) = explode(" ", trim($line));
+        [$_, $album] = explode(" ", trim($line));
         array_push($user->albums, $album);
     }
 
     array_push($users, $user);
     if ($n) {
-        list($_, $_, $userName) = explode(" ", $line);
+        [$_, $_, $userName] = explode(" ", $line);
         continue;
     }
     $m = $line;
@@ -47,10 +47,10 @@ while ($n--) {
 $albums = [];
 while ($m--) {
     $album = new Album;
-    list($_, $_, $album->name) = explode(" ", readline());
-    list($_, $album->singer) = explode(" ", trim(readline()));
-    list($_, $album->genre) = explode(" ", trim(readline()));
-    list($_, $album->trackCount) = explode(" ", trim(readline()));
+    [$_, $_, $album->name] = explode(" ", readline());
+    [$_, $album->singer] = explode(" ", trim(readline()));
+    [$_, $album->genre] = explode(" ", trim(readline()));
+    [$_, $album->trackCount] = explode(" ", trim(readline()));
     array_push($albums, $album);
 }
 
@@ -85,8 +85,8 @@ $cmd = [
 ];
 
 while ($q--) {
-    list($type, $userValue, $albumValue) = explode(" ", readline());
-    list($userKey, $albumKey) = $cmd[$type - 1];
+    [$type, $userValue, $albumValue] = explode(" ", readline());
+    [$userKey, $albumKey] = $cmd[$type - 1];
     $res = query($userKey, $userValue, $albumKey, $albumValue);
     echo "{$res}\n";
 }
