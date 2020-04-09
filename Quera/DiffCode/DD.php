@@ -7,7 +7,7 @@ class User {
     
     public function __construct($name) {
         $this->name = $name;
-        $this->albums = array();
+        $this->albums = [];
     }
 };
 
@@ -19,11 +19,10 @@ class Album {
 };
 
 $n = readline();
-$m = null;
-
-$users = array();
 list($_, $_, $userName) = explode(" ", readline());
 
+$m = null;
+$users = [];
 while ($n--) {
     $user = new User($userName);
     list($_, $user->age) = explode(" ", trim(readline()));
@@ -45,7 +44,7 @@ while ($n--) {
     $m = $line;
 }
 
-$albums = array();
+$albums = [];
 while ($m--) {
     $album = new Album;
     list($_, $_, $album->name) = explode(" ", readline());
@@ -62,44 +61,33 @@ function findAlbum($name) {
 			return $album;
 }
 
-function userQuery($userKey, $userValue, $key, $value) {
+function query($userKey, $userValue, $albumKey, $albumValue) {
     $res = 0;
     global $users;
     foreach ($users as $user)
         if ($user->{$userKey} == $userValue)
             foreach ($user->albums as $albumName) {
                 $album = findAlbum($albumName);
-                if ($album->{$key} == $value)
+                if ($album->{$albumKey} == $albumValue)
                     $res += $album->trackCount;
             }
     return $res;
 }
 
 $q = readline();
+$cmd = [
+    ["name", "singer"],
+    ["name", "genre"],
+    ["age", "singer"],
+    ["age", "genre"],
+    ["city", "singer"],
+    ["city", "genre"],
+];
+
 while ($q--) {
-    list($type, $s1, $s2) = explode(" ", readline());
-    
-    $res = 0;
-    switch ($type) {
-        case 1:
-            $res = userQuery("name", $s1, "singer", $s2);
-            break;
-        case 2:
-            $res = userQuery("name", $s1, "genre", $s2);
-            break;
-        case 3:
-            $res = userQuery("age", $s1, "singer", $s2);
-            break;
-        case 4:
-            $res = userQuery("age", $s1, "genre", $s2);
-            break;
-        case 5:
-            $res = userQuery("city", $s1, "singer", $s2);
-            break;
-        case 6:
-            $res = userQuery("city", $s1, "genre", $s2);
-            break;
-    }
+    list($type, $userValue, $albumValue) = explode(" ", readline());
+    list($userKey, $albumKey) = $cmd[$type - 1];
+    $res = query($userKey, $userValue, $albumKey, $albumValue);
     echo "{$res}\n";
 }
 ?>
