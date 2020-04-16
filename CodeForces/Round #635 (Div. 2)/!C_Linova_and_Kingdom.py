@@ -1,3 +1,4 @@
+from pprint import pprint
 n, k = map(int, input().split())
 
 adj = [[] for _ in range(n + 1)]
@@ -10,6 +11,7 @@ for _ in range(n - 1):
     deg[v] += 1
 
 l = [(-deg[u], u) for u in range(1, n + 1)]
+pprint(sorted(l))
 is_tourist = [0] * (n + 1)
 for _, u in sorted(l)[:-k]:
     is_tourist[u] = 1
@@ -29,4 +31,3 @@ while q:
 
 res = sum(tourist_count[u] for u in range(1, n + 1) if is_tourist[u] == 0)
 print(res)
-  
