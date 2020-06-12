@@ -7,7 +7,7 @@ def guess_generator_iterator(guess_generator, min_value, max_value, assumed_numb
 
     res = []
     found, oops_count = False, 0
-    minl, maxg = min_value - 1, max_value + 1
+    last_guess = last_judge = None
 
     while True:
         judge = None
@@ -21,17 +21,16 @@ def guess_generator_iterator(guess_generator, min_value, max_value, assumed_numb
         oops = False
         if guess < min_value or guess > max_value or found:
             oops = True
-        else:
-            if guess <= minl or guess >= maxg:
+        elif judge == 'E':
+            found = True
+        elif judge == 'G':
+            if last_judge == 'G' and guess >= last_guess:
+                oops = True
+        elif judge == 'L':
+            if last_judge == 'L' and guess <= last_guess:
                 oops = True
 
-            if judge == 'E':
-                found = True
-            elif judge == 'G':
-                maxg = min(maxg, guess)
-            elif judge == 'L':
-                minl = max(minl, guess)
-
+        last_guess, last_judge = guess, judge
         res.append(guess)
         if oops:
             res.append('!')
