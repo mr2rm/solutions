@@ -4,3 +4,4 @@
 *.bin
 *.tcs
 tempCodeRunnerFile.py
+node_modules/
