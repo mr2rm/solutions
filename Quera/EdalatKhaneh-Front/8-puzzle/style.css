@@ -1,0 +1,45 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.grid-wrapper {
+
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 90px;
+    height: 90px;
+    background-color: cadetblue;
+    align-items: center;
+    color: white;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.cell span {
+    font-size: 28px;
+}
+
+.btn {
+    padding: 10px;
+    background-color: cornsilk;
+    border: 1px solid antiquewhite;
+}
+
+.status-wrapper {
+    text-align: center;
+}

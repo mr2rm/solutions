@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>8 Puzzle</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>8 Puzzle Game</h1>
+        <div class="grid-wrapper">
+            <div class="row">
+                <div class="cell" id="0"><span></span></div>
+                <div class="cell" id="1"><span></span></div>
+                <div class="cell" id="2"><span></span></div>
+            </div>
+            <div class="row">
+                <div class="cell" id="3"><span></span></div>
+                <div class="cell" id="4"><span></span></div>
+                <div class="cell" id="5"><span></span></div>
+            </div>
+            <div class="row">
+                <div class="cell" id="6"><span></span></div>
+                <div class="cell" id="7"><span></span></div>
+                <div class="cell" id="8"><span></span></div>
+            </div>
+        </div>
+        <div class="status-wrapper">
+            <h2 id='game_status'>Start moving Tile !</h2>
+            <h3 id='moves'>0</h3>
+        </div>
+
+        <button class="btn">
+            Reset
+        </button>
+    </div>
+
+</body>
+<script src='app.js'></script>
+
+</html>
