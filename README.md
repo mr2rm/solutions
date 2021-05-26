@@ -5,5 +5,5 @@ This repository contains my solutions for different problems of online judges an
 |        Online Judge        | Count |
 | :------------------------: | :---: |
 |      [Quera](./quera)      |   1   |
-|     [Kattis](./kattis)     |   2   |
+|     [Kattis](./kattis)     |   3   |
 | [Codeforces](./codeforces) |   1   |
