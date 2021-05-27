@@ -6,4 +6,4 @@ This repository contains my solutions for different problems of online judges an
 | :------------------------: | :---: |
 |      [Quera](./quera)      |   1   |
 |     [Kattis](./kattis)     |   3   |
-| [Codeforces](./codeforces) |   1   |
+| [Codeforces](./codeforces) |   2   |
