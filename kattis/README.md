@@ -6,3 +6,4 @@
 |        [nine](https://open.kattis.com/problems/nine)        |    Divide & Conquer (Fast Power)    |   3   | [YouTube](https://youtu.be/WQ3T34bHcmw) |    [cpp](./nine.cpp)     |   AC   |
 |   [froshweek](https://open.kattis.com/problems/froshweek)   | Divide & Conquer (Inversion Index)  |   3   | [YouTube](https://youtu.be/7rNVhoWOYKI) |  [cpp](./froshweek.cpp)  |   AC   |
 |  [wordclouds](https://open.kattis.com/problems/wordclouds)  |         Dynamic Programming         |   3   | [YouTube](https://youtu.be/pvLFRRwJCJc) | [cpp](./wordclouds.cpp)  |   AC   |
+| [freeweights](https://open.kattis.com/problems/freeweights) |        Binary Search (BSTA)         |   3   | [YouTube](https://youtu.be/U3LontCMlXc) | [cpp](./freeweights.cpp) |   AC   |
