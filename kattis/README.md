@@ -7,3 +7,4 @@
 |   [froshweek](https://open.kattis.com/problems/froshweek)   | Divide & Conquer (Inversion Index)  |   3   | [YouTube](https://youtu.be/7rNVhoWOYKI) |  [cpp](./froshweek.cpp)  |   AC   |
 |  [wordclouds](https://open.kattis.com/problems/wordclouds)  |         Dynamic Programming         |   3   | [YouTube](https://youtu.be/pvLFRRwJCJc) | [cpp](./wordclouds.cpp)  |   AC   |
 | [freeweights](https://open.kattis.com/problems/freeweights) |        Binary Search (BSTA)         |   3   | [YouTube](https://youtu.be/U3LontCMlXc) | [cpp](./freeweights.cpp) |   AC   |
+|  [froshweek2](https://open.kattis.com/problems/froshweek2)  |               Greedy                |   2   | [YouTube](https://youtu.be/uQq6oDK0Jj0) | [cpp](./froshweek2.cpp)  |   AC   |
