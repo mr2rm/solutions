@@ -1,0 +1,117 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "full_name": "Seyed Ali Babaei",
+      "username": "SAliB",
+      "email": "salib@gmail.com",
+      "password": "123123123",
+      "phone": "09381354444",
+      "address": "dish dish",
+      "gender": "M",
+      "age": "19",
+      "description": "dish dish"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "full_name": "Saeid Zamani",
+      "username": "Saeid",
+      "email": "saeid@gmail.com",
+      "password": "123123123",
+      "phone": "09381354444",
+      "address": "dish dish",
+      "gender": "M",
+      "age": "21",
+      "description": "dish dish"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "full_name": "Ali Shafeei",
+      "username": "Ali",
+      "email": "ali@gmail.com",
+      "password": "123123123",
+      "phone": "09381354444",
+      "address": "dish dish",
+      "gender": "M",
+      "age": "21",
+      "description": "dish dish"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+      "full_name": "Admin",
+      "username": "Admin",
+      "email": "admin@gmail.com",
+      "password": "123123123",
+      "phone": "09381354444",
+      "address": "dish dish",
+      "gender": "M",
+      "age": "999",
+      "description": "dish dish"
+    }
+  },
+  {
+    "model": "problems.problem",
+    "pk": 1,
+    "fields": {
+      "name": "Easy",
+      "description": "dish dish",
+      "writer": 4,
+      "score": "100"
+    }
+  },
+  {
+    "model": "problems.problem",
+    "pk": 2,
+    "fields": {
+      "name": "Medium",
+      "description": "dish dish",
+      "writer": 4,
+      "score": "200"
+    }
+  },
+  {
+    "model": "problems.problem",
+    "pk": 3,
+    "fields": {
+      "name": "Hard",
+      "description": "dish dish",
+      "writer": 4,
+      "score": "300"
+    }
+  },
+  {
+    "model": "contests.contest",
+    "pk": 1,
+    "fields": {
+      "name": "Contest",
+      "holder": 4,
+      "start_time": "2020-05-16T16:00:00+00:00",
+      "finish_time": "2020-05-16T18:00:00+00:00",
+      "is_monetary": "False",
+      "price": "0",
+      "problems": [
+        1,
+        2,
+        3
+      ],
+      "authors": [
+        4
+      ],
+      "participants": [
+        1,
+        2,
+        3
+      ]
+    }
+  }
+]
