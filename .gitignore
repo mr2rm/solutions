@@ -1,8 +1,12 @@
 .vscode/
-.cph/
+.idea/
 *.pdf
 *.zip
 *.bin
 *.tcs
+*.sqlite3
+*.pyc
 tempCodeRunnerFile.py
 node_modules/
+.venv/
+.cph/
