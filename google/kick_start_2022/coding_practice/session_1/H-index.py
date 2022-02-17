@@ -1,6 +1,6 @@
 def h_index(_, citations):
     ans = []
-    cnt = [0] * 100_001
+    cnt = [0] * 100100
     h, lte, ute = 1, 0, 0
 
     for i, c in enumerate(citations, start=1):
