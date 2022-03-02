@@ -18,6 +18,15 @@ def balancedSums(arr):
     n = len(arr)
 
     # O(n)
+    total = sum(arr)
+    partial_sum = 0
+    for x in arr:
+        if partial_sum == (total - partial_sum - x):
+            return 'YES'
+        partial_sum += x
+    return 'NO'
+
+    # O(n)
     # partial_sum = []
     # for i, x in enumerate(arr):
     #     t = x + (0 if i == 0 else partial_sum[i - 1])
@@ -28,22 +37,13 @@ def balancedSums(arr):
     # return 'NO'
 
     # O(n)
-    # total = sum(arr)
-    # partial_sum = 0
-    # for x in arr:
-    #     if partial_sum == (total - partial_sum - x):
+    # lsum, rsum = 0, sum(arr)
+    # for i, x in enumerate(arr):
+    #     if lsum == rsum - x:
     #         return 'YES'
-    #     partial_sum += x
+    #     lsum += x
+    #     rsum -= arr[i]
     # return 'NO'
-
-    # O(n)
-    lsum, rsum = 0, sum(arr)
-    for i, x in enumerate(arr):
-        if lsum == rsum - x:
-            return 'YES'
-        lsum += x
-        rsum -= arr[i]
-    return 'NO'
 
 
 if __name__ == '__main__':
