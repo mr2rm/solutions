@@ -16,13 +16,20 @@ import sys
 
 def counterGame(n):
     # O(log2(n))
-    res = 0
-    while n > 1:
-        if n & (n - 1) == 0:
-            n >>= 1
-        else:
-            n -= 1 << int(math.log2(n))
-        res = 1 - res
+    # res = 0
+    # while n > 1:
+    #     if n & (n - 1) == 0:
+    #         n >>= 1
+    #     else:
+    #         n -= 1 << int(math.log2(n))
+    #     res = 1 - res
+
+    # O(log2(n))
+    bits = bin(n)[2:]
+    tz_cnt = bits[::-1].find('1')
+    lo_cnt = bits.count('1')
+    res = (tz_cnt + lo_cnt - 1) % 2
+
     if res == 0:
         return 'Richard'
     return 'Louise'
