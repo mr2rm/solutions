@@ -14,6 +14,21 @@ import sys
 #
 
 
+def msb(n):
+    for i in reversed(range(64)):
+        if n & (1 << i) != 0:
+            return 1 << i
+    return 0
+
+
+def can_win(n):
+    if n == 1:
+        return False
+    if n & (n - 1) == 0:
+        return not can_win(n >> 1)
+    return not can_win(n - msb(n))
+
+
 def counterGame(n):
     # O(log2(n))
     # res = 0
@@ -23,16 +38,21 @@ def counterGame(n):
     #     else:
     #         n -= 1 << int(math.log2(n))
     #     res = 1 - res
+    # if res == 0:
+    #     return 'Richard'
+    # return 'Louise'
 
     # O(log2(n))
-    bits = bin(n)[2:]
-    tz_cnt = bits[::-1].find('1')
-    lo_cnt = bits.count('1')
-    res = (tz_cnt + lo_cnt - 1) % 2
+    # bits = bin(n)[2:]
+    # tz_cnt = bits[::-1].find('1')
+    # lo_cnt = bits.count('1')
+    # res = (tz_cnt + lo_cnt - 1) % 2
+    # if res == 0:
+    #     return 'Richard'
+    # return 'Louise'
 
-    if res == 0:
-        return 'Richard'
-    return 'Louise'
+    # O(log2(n))
+    return 'Louise' if can_win(n) else 'Richard'
 
 
 if __name__ == '__main__':
