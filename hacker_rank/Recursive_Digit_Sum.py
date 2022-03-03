@@ -16,16 +16,22 @@ import sys
 #
 
 
-def sumOfDigits(s: str):
+def sum_digits(s: str):
     return sum(map(int, s))
 
 
 def superDigit(n, k):
     # O(log10(n))
-    res = k * sumOfDigits(n)
-    while res > 9:
-        res = sumOfDigits(str(res))
-    return res
+    # res = k * sum_digits(n)
+    # while res > 9:
+    #     res = sum_digits(str(res))
+    # return res
+
+    # O(log10(n))
+    if len(n) == 1 and k == 1:
+        return n
+    m = str(k * sum_digits(n))
+    return superDigit(m, 1)
 
 
 if __name__ == '__main__':
