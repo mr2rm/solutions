@@ -38,21 +38,22 @@ def counterGame(n):
     #     else:
     #         n -= 1 << int(math.log2(n))
     #     res = 1 - res
-    # if res == 0:
-    #     return 'Richard'
-    # return 'Louise'
 
     # O(log2(n))
-    # return 'Louise' if can_win(n) else 'Richard'
+    # res = can_win(n)
 
     # O(log2(n))
-    bits = bin(n)[2:]
-    tz_cnt = bits[::-1].find('1')
-    lo_cnt = bits.count('1')
-    res = (tz_cnt + lo_cnt - 1) % 2
-    if res == 0:
-        return 'Richard'
-    return 'Louise'
+    # bits = bin(n)[2:]
+    # tz_cnt = bits[::-1].find('1')
+    # lo_cnt = bits.count('1')
+    # res = (tz_cnt + lo_cnt - 1) % 2
+
+    # O(log2(n))
+    res = bin(n - 1).count('1') % 2
+
+    if res:
+        return 'Louise'
+    return 'Richard'
 
 
 if __name__ == '__main__':
