@@ -43,16 +43,16 @@ def counterGame(n):
     # return 'Louise'
 
     # O(log2(n))
-    # bits = bin(n)[2:]
-    # tz_cnt = bits[::-1].find('1')
-    # lo_cnt = bits.count('1')
-    # res = (tz_cnt + lo_cnt - 1) % 2
-    # if res == 0:
-    #     return 'Richard'
-    # return 'Louise'
+    # return 'Louise' if can_win(n) else 'Richard'
 
     # O(log2(n))
-    return 'Louise' if can_win(n) else 'Richard'
+    bits = bin(n)[2:]
+    tz_cnt = bits[::-1].find('1')
+    lo_cnt = bits.count('1')
+    res = (tz_cnt + lo_cnt - 1) % 2
+    if res == 0:
+        return 'Richard'
+    return 'Louise'
 
 
 if __name__ == '__main__':
