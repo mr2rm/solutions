@@ -29,11 +29,36 @@ def lcm(a, b):
 
 
 def getTotalX(a, b):
-    # O(n) = O(100 * (n + m))
     res = 0
-    for x in range(1, 101):
-        if all(x % i == 0 for i in a) and all(i % x == 0 for i in b):
+
+    # O(n) = O(C * (n + m))
+    # for x in range(1, 101):
+    #     if all(x % i == 0 for i in a) and all(i % x == 0 for i in b):
+    #         res += 1
+
+    # O(logC)
+    a_lcm = a[0]
+    for x in a:
+        a_lcm = lcm(x, a_lcm)
+    b_gcd = b[0]
+    for x in b:
+        b_gcd = gcd(x, b_gcd)
+
+    # O(C)
+    # x = a_lcm
+    # while x <= b_gcd:
+    #     if b_gcd % x == 0:
+    #         res += 1
+    #     x += a_lcm
+
+    # O(sqrt(C))
+    x = b_gcd // a_lcm
+    for i in range(1, int(math.sqrt(x)) + 1):
+        if x % i == 0:
             res += 1
+            if i * i != x:
+                res += 1
+
     return res
 
 
