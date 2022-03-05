@@ -19,28 +19,61 @@ import sys
 DIRS = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
 
+def join(mat):
+    return [''.join(row) for row in mat]
+
+
+def plant(r, c):
+    return [c * ['O'] for _ in range(r)]
+
+
+def explode(mat):
+    r, c = len(mat), len(mat[0])
+    res = plant(r, c)
+    for i in range(r):
+        for j in range(c):
+            if mat[i][j] == 'O':
+                res[i][j] = '.'
+                for dx, dy in DIRS:
+                    x, y = i + dx, j + dy
+                    if 0 <= x < r and 0 <= y < c:
+                        res[x][y] = '.'
+    return join(res)
+
+
 def bomberMan(n, grid):
     r, c = len(grid), len(grid[0])
-    for i, row in enumerate(grid):
-        grid[i] = [0 if x == 'O' else -1 for x in row]
 
-    for t in range(2, n + 1):
-        if t % 2 == 0:
-            for i, row in enumerate(grid):
-                grid[i] = [t if x == -1 else x for x in row]
-        else:
-            for i in range(r):
-                for j in range(c):
-                    if grid[i][j] != -1 and t - grid[i][j] == 3:
-                        grid[i][j] = -1
-                        for di, dj in DIRS:
-                            x, y = i + di, j + dj
-                            if 0 <= x < r and 0 <= y < c and grid[x][y] != -1 and t - grid[x][y] != 3:
-                                grid[x][y] = -1
+    # O(n*r*c) - TLE
+    # for i, row in enumerate(grid):
+    #     grid[i] = [0 if x == 'O' else -1 for x in row]
+    # for t in range(2, n + 1):
+    #     if t % 2 == 0:
+    #         for i, row in enumerate(grid):
+    #             grid[i] = [t if x == -1 else x for x in row]
+    #     else:
+    #         for i in range(r):
+    #             for j in range(c):
+    #                 if grid[i][j] != -1 and t - grid[i][j] == 3:
+    #                     grid[i][j] = -1
+    #                     for di, dj in DIRS:
+    #                         x, y = i + di, j + dj
+    #                         if 0 <= x < r and 0 <= y < c and grid[x][y] != -1 and t - grid[x][y] != 3:
+    #                             grid[x][y] = -1
+    # res = []
+    # for i, row in enumerate(grid):
+    #     res.append(''.join('O' if x != -1 else '.' for x in row))
+    # return res
 
-    res = []
-    for i, row in enumerate(grid):
-        res.append(''.join('O' if x != -1 else '.' for x in row))
+    # O(r*c)
+    if n == 1:
+        return grid
+    p, q = divmod(n, 2)
+    if q == 0:
+        return join(plant(r, c))
+    res = explode(grid)
+    if p % 2 == 0:
+        res = explode(res)
     return res
 
 
