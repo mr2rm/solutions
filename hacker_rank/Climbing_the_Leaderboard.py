@@ -1,6 +1,7 @@
 #!/bin/python3
 
 from bisect import bisect_left
+import enum
 import math
 import os
 import random
@@ -20,11 +21,11 @@ import sys
 def climbingLeaderboard(ranked, player):
     res = []
 
-    unique_ranked = []
-    for i, score in enumerate(ranked):
-        if i == 0 or score != ranked[i - 1]:
-            unique_ranked.append(score)
-    n = len(unique_ranked)
+    # unique_ranked = []
+    # for i, score in enumerate(ranked):
+    #     if i == 0 or score != ranked[i - 1]:
+    #         unique_ranked.append(score)
+    # n = len(unique_ranked)
 
     # O(nlogn)
     # unique_ranked.reverse()
@@ -35,11 +36,24 @@ def climbingLeaderboard(ranked, player):
     #     res.append(n - idx)
 
     # O(n)
-    i = n - 1
+    # pt = n - 1
+    # for score in player:
+    #     while pt >= 0 and score >= unique_ranked[pt]:
+    #         pt -= 1
+    #     res.append(pt + 2)
+
+    # O(n)
+    rank = [1]
+    for pt, score in enumerate(ranked[1:], start=1):
+        pos = rank[pt - 1]
+        if score != ranked[pt - 1]:
+            pos += 1
+        rank.append(pos)
+    pt = len(ranked) - 1
     for score in player:
-        while i >= 0 and score >= unique_ranked[i]:
-            i -= 1
-        res.append(i + 2)
+        while pt >= 0 and score >= ranked[pt]:
+            pt -= 1
+        res.append(1 if pt == -1 else rank[pt] + 1)
 
     return res
 
