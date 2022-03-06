@@ -15,15 +15,33 @@ import sys
 
 
 def minimumBribes(q):
+    res = 0
+
     # O(nlogn)
-    res, arr = 0, []
-    for x in q[::-1]:
-        idx = bisect_left(arr, x)
-        if idx > 2:
+    # arr = []
+    # for x in q[::-1]:
+    #     idx = bisect_left(arr, x)
+    #     if idx > 2:
+    #         res = 'Too chaotic'
+    #         break
+    #     arr.insert(idx, x)
+    #     res += idx
+
+    # O(n)
+    for i in reversed(range(len(q))):
+        x = i + 1
+        if q[i] == x:
+            continue
+        if q[i - 1] != x and q[i - 2] != x:
             res = 'Too chaotic'
             break
-        arr.insert(idx, x)
-        res += idx
+        if q[i - 1] == x:
+            q[i - 1], q[i] = q[i], q[i - 1]
+            res += 1
+        else:
+            q[i - 2], q[i - 1], q[i] = q[i - 1], q[i], q[i - 2]
+            res += 2
+
     print(res)
 
 
