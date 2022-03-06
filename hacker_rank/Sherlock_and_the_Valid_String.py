@@ -1,7 +1,6 @@
 #!/bin/python3
 
-from collections import defaultdict
-from email.policy import default
+from collections import defaultdict, Counter
 import math
 import os
 import random
@@ -18,9 +17,10 @@ import sys
 
 def isValid(s):
     # O(n)
-    cnts = defaultdict(int)
-    for c in s:
-        cnts[c] += 1
+    # cnts = defaultdict(int)
+    # for c in s:
+    #     cnts[c] += 1
+    cnts = Counter(s)
     freqs = set(cnts.values())
     n, m = len(cnts), len(freqs)
     if m > 2:
