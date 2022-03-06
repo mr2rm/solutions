@@ -60,7 +60,15 @@ def reverse_node(prev, node):
 
 def reverse(head):
     # O(n)
-    return reverse_node(None, head)
+    # return reverse_node(None, head)
+
+    # O(n)
+    prev, curr = None, head
+    while curr:
+        _next = curr.next
+        curr.next = prev
+        prev, curr = curr, _next
+    return prev
 
 
 if __name__ == '__main__':
