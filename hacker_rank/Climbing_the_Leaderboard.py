@@ -18,18 +18,29 @@ import sys
 
 
 def climbingLeaderboard(ranked, player):
-    # O(nlogn)
+    res = []
+
     unique_ranked = []
     for i, score in enumerate(ranked):
         if i == 0 or score != ranked[i - 1]:
             unique_ranked.append(score)
-    unique_ranked.reverse()
-    n, res = len(unique_ranked), []
+    n = len(unique_ranked)
+
+    # O(nlogn)
+    # unique_ranked.reverse()
+    # for score in player:
+    #     idx = bisect_left(unique_ranked, score)
+    #     if idx == n or unique_ranked[idx] != score:
+    #         idx -= 1
+    #     res.append(n - idx)
+
+    # O(n)
+    i = n - 1
     for score in player:
-        idx = bisect_left(unique_ranked, score)
-        if idx == n or unique_ranked[idx] != score:
-            idx -= 1
-        res.append(n - idx)
+        while i >= 0 and score >= unique_ranked[i]:
+            i -= 1
+        res.append(i + 2)
+
     return res
 
 
