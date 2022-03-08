@@ -53,7 +53,18 @@ def print_doubly_linked_list(node, sep):
 #
 
 
+def reverse_node(prev, node):
+    head = node
+    if node.next:
+        head = reverse_node(node, node.next)
+    node.next, node.prev = prev, node.next
+    return head
+
+
 def reverse(head):
+    # O(n)
+    # return reverse_node(None, head)
+
     # O(n)
     prev, curr = None, head
     while curr:
