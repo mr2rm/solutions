@@ -28,11 +28,21 @@ def icecreamParlor(m, arr):
 
     # O(nlogn)
     sorted_arr = sorted(arr)
+    # Find flavors - first approach
+    # for i, a in enumerate(sorted_arr):
+    #     b = m - a
+    #     j = bisect_left(sorted_arr, b)
+    #     if j < n and sorted_arr[j] == b:
+    #         break
+    # Find flavors - second approach
+    j = n - 1
     for i, a in enumerate(sorted_arr):
-        b = m - a
-        j = bisect_left(sorted_arr, b)
-        if j < n and sorted_arr[j] == b:
+        while a + sorted_arr[j] > m:
+            j -= 1
+        b = sorted_arr[j]
+        if a + b == m:
             break
+    # Get indices for found flavors
     res, values = [], [a, b]
     for i, x in enumerate(arr):
         if x in values:
