@@ -18,7 +18,7 @@ import sys
 
 
 def icecreamParlor(m, arr):
-    n = len(arr)
+    # n = len(arr)
 
     # O(n^2)
     # for i in range(n):
@@ -27,7 +27,7 @@ def icecreamParlor(m, arr):
     #             return (i + 1, j + 1)
 
     # O(nlogn)
-    sorted_arr = sorted(arr)
+    # sorted_arr = sorted(arr)
     # Find flavors - first approach
     # for i, a in enumerate(sorted_arr):
     #     b = m - a
@@ -35,14 +35,29 @@ def icecreamParlor(m, arr):
     #     if j < n and sorted_arr[j] == b:
     #         break
     # Find flavors - second approach
-    j = n - 1
-    for i, a in enumerate(sorted_arr):
-        while a + sorted_arr[j] > m:
-            j -= 1
-        b = sorted_arr[j]
-        if a + b == m:
+    # j = n - 1
+    # for i, a in enumerate(sorted_arr):
+    #     while a + sorted_arr[j] > m:
+    #         j -= 1
+    #     b = sorted_arr[j]
+    #     if a + b == m:
+    #         break
+    # # Get indices for found flavors
+    # res, values = [], [a, b]
+    # for i, x in enumerate(arr):
+    #     if x in values:
+    #         values.remove(x)
+    #         res.append(i + 1)
+    # return sorted(res)
+
+    # O(n)
+    cnt = [0] * 10_010
+    for x in arr:
+        cnt[x] += 1
+    for a in arr:
+        b = m - a
+        if cnt[b] >= 2 or (a != b and cnt[b]):
             break
-    # Get indices for found flavors
     res, values = [], [a, b]
     for i, x in enumerate(arr):
         if x in values:
