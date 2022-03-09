@@ -51,20 +51,34 @@ def extend_list(llist, node):
         node = node.next
 
 
+def select_node(node1, node2):
+    if node1.data < node2.data:
+        return node1, (node1.next, node2)
+    return node2, (node1, node2.next)
+
+
 def mergeLists(head1, head2):
     # O(n + m)
-    llist = SinglyLinkedList()
-    curr1, curr2 = head1, head2
-    while curr1 and curr2:
-        if curr1.data < curr2.data:
-            curr1, data = curr1.next, curr1.data
-        else:
-            curr2, data = curr2.next, curr2.data
-        llist.insert_node(data)
+    # llist = SinglyLinkedList()
+    # curr1, curr2 = head1, head2
+    # while curr1 and curr2:
+    #     if curr1.data < curr2.data:
+    #         curr1, data = curr1.next, curr1.data
+    #     else:
+    #         curr2, data = curr2.next, curr2.data
+    #     llist.insert_node(data)
+    # extend_list(llist, curr1)
+    # extend_list(llist, curr2)
+    # return llist.head
 
-    extend_list(llist, curr1)
-    extend_list(llist, curr2)
-    return llist.head
+    # O(n + m)
+    head, (head1, head2) = select_node(head1, head2)
+    curr = head
+    while head1 and head2:
+        curr.next, (head1, head2) = select_node(head1, head2)
+        curr = curr.next
+    curr.next = head1 if head1 else head2
+    return head
 
 
 if __name__ == '__main__':
@@ -85,5 +99,4 @@ if __name__ == '__main__':
             llist2.insert_node(llist2_item)
 
         llist3 = mergeLists(llist1.head, llist2.head)
-
         print_singly_linked_list(llist3, ' ')
