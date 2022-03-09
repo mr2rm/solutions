@@ -1,5 +1,6 @@
 #!/bin/python3
 
+from bisect import bisect_left
 import math
 import os
 import random
@@ -17,12 +18,27 @@ import sys
 
 
 def icecreamParlor(m, arr):
-    # O(n^2)
     n = len(arr)
-    for i in range(n):
-        for j in range(i + 1, n):
-            if arr[i] + arr[j] == m:
-                return (i + 1, j + 1)
+
+    # O(n^2)
+    # for i in range(n):
+    #     for j in range(i + 1, n):
+    #         if arr[i] + arr[j] == m:
+    #             return (i + 1, j + 1)
+
+    # O(nlogn)
+    sorted_arr = sorted(arr)
+    for i, a in enumerate(sorted_arr):
+        b = m - a
+        j = bisect_left(sorted_arr, b)
+        if j < n and sorted_arr[j] == b:
+            break
+    res, values = [], [a, b]
+    for i, x in enumerate(arr):
+        if x in values:
+            values.remove(x)
+            res.append(i + 1)
+    return sorted(res)
 
 
 if __name__ == '__main__':
