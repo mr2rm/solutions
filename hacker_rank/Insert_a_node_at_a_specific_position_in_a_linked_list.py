@@ -54,16 +54,27 @@ def print_singly_linked_list(node, sep):
 
 
 def insertNodeAtPosition(llist, data, position):
-    # O(n)
-    prev, curr = None, llist
-    for _ in range(position):
-        prev, curr = curr, curr.next
-
     node = SinglyLinkedListNode(data)
-    node.next = curr
-    prev.next = node
-    head = node if position == 0 else llist
-    return head
+
+    # O(n)
+    # prev, curr = None, llist
+    # for _ in range(position):
+    #     prev, curr = curr, curr.next
+    # node.next = curr
+    # prev.next = node
+    # head = node if position == 0 else llist
+    # return head
+
+    # O(n)
+    if position == 0:
+        node.next = llist
+        return node
+    curr = llist
+    for _ in range(position - 1):
+        curr = curr.next
+    node.next = curr.next
+    curr.next = node
+    return llist
 
 
 if __name__ == '__main__':
