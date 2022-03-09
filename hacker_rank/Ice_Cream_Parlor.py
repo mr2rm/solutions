@@ -56,7 +56,8 @@ def icecreamParlor(m, arr):
         cnt[x] += 1
     for a in arr:
         b = m - a
-        if cnt[b] >= 2 or (a != b and cnt[b]):
+        cnt[a] -= 1
+        if cnt[b]:
             break
     res, values = [], [a, b]
     for i, x in enumerate(arr):
