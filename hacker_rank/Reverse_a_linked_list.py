@@ -58,12 +58,12 @@ def reverse_node(prev, node):
     return head
 
 
-def reverse(head):
+def reverse(llist):
     # O(n)
-    # return reverse_node(None, head)
+    # return reverse_node(None, llist)
 
     # O(n)
-    prev, curr = None, head
+    prev, curr = None, llist
     while curr:
         _next = curr.next
         curr.next = prev
