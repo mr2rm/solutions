@@ -1,6 +1,5 @@
 #!/bin/python3
 
-from audioop import cross
 import math
 import os
 import random
