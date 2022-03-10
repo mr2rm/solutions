@@ -19,25 +19,48 @@ import sys
 MAXN = 10_010
 
 
-def get_primes():
+def sieve():
     # ~O(nlogn)
     is_prime = [True] * MAXN
     is_prime[0] = is_prime[1] = False
 
-    def cross_multiplications(a):
+    def cross_multiples(a):
         for i in range(2, ((MAXN - 1) // a) + 1):
             is_prime[i * a] = False
 
-    cross_multiplications(2)
+    cross_multiples(2)
     for x in range(3, int(math.sqrt(MAXN)) + 1, 2):
         if is_prime[x]:
-            cross_multiplications(x)
+            cross_multiples(x)
 
     primes = [x for x in range(MAXN) if is_prime[x]]
     return primes
 
 
+def find_primes():
+    # ~O(nlogn)
+    primes = [2]
+
+    for x in range(3, MAXN, 2):
+        is_prime = True
+        # for i in range(2, int(math.sqrt(x)) + 1):
+        for i in primes:
+            if x % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(x)
+
+    return primes
+
+
+def get_primes():
+    # return find_primes()
+    return sieve()
+
+
 def waiter(number, q):
+    # O(q*n)
     res = []
     primes = get_primes()
 
