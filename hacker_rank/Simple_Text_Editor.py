@@ -1,3 +1,4 @@
+# O(s)
 history = ['']
 
 # text, deleted = [], []
