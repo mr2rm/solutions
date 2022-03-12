@@ -28,7 +28,7 @@ def equalStacks(h1, h2, h3):
     h1.reverse(), h2.reverse(), h3.reverse()
     s1, s2, s3 = sum(h1), sum(h2), sum(h3)
     while s1 != s2 or s2 != s3:
-        t = min(min(s1, s2), s3)
+        t = min((s1, s2, s3))
         s1 = remove_cylinders(h1, s1, t)
         s2 = remove_cylinders(h2, s2, t)
         s3 = remove_cylinders(h3, s3, t)
