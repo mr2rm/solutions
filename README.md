@@ -9,3 +9,4 @@ This repository contains my solutions for different problems of online judges an
 |      [Quera](./quera)       |   5   |
 | [Codeforces](./codeforces)  |   2   |
 |        [UVa](./uva)         |   2   |
+|     [Google](./google/)     |   1   |
