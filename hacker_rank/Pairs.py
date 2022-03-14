@@ -1,6 +1,6 @@
 #!/bin/python3
 
-from bisect import bisect_left, bisect_right
+from bisect import bisect_left
 from collections import defaultdict
 import math
 import os
@@ -20,28 +20,28 @@ import sys
 
 def pairs(k, arr):
     # O(nlogn) - Two Pointers
-    n = len(arr)
-    arr.sort()
-    res = j = 0
-    for x in arr:
-        for j in range(j, n):
-            if arr[j] > x + k:
-                break
-            if arr[j] == x + k:
-                res += 1
-    return res
-
-    # O(nlogn) - Binary Search
+    # n = len(arr)
     # arr.sort()
-    # n, res = len(arr), 0
-    # for a in arr:
-    #     b = a + k
-    #     j = bisect_left(arr, b)
+    # res = j = 0
+    # for x in arr:
+    #     while j < n and arr[j] < x + k:
+    #         j += 1
     #     if j == n:
     #         break
-    #     if arr[j] == b:
-    #         res += bisect_right(arr, b) - j
+    #     if arr[j] == x + k:
+    #         res += 1
     # return res
+
+    # O(nlogn) - Binary Search
+    arr.sort()
+    n, res = len(arr), 0
+    for x in arr:
+        j = bisect_left(arr, x + k)
+        if j == n:
+            break
+        if arr[j] == x + k:
+            res += 1
+    return res
 
 
 if __name__ == '__main__':
