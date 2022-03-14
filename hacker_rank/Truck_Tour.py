@@ -25,17 +25,29 @@ def truckTour(petrolpumps):
     # return res
 
     # O(n) - Queue
-    queue = deque()
-    queue.append(0)
-    n, tank = len(petrolpumps), 0
-    while len(queue) < n:
-        i = queue[-1]
-        tank += petrolpumps[i][0] - petrolpumps[i][1]
-        if tank < 0:
+    # queue = deque()
+    # queue.append(0)
+    # n, tank = len(petrolpumps), 0
+    # while len(queue) < n:
+    #     i = queue[-1]
+    #     tank += petrolpumps[i][0] - petrolpumps[i][1]
+    #     if tank < 0:
+    #         tank = 0
+    #         queue.clear()
+    #     queue.append((i + 1) % n)
+    # return queue[0]
+
+    # O(n) - Circural Queue
+    n, tank = len(petrolpumps), None
+    i = j = 0
+    while tank is None or i != j:
+        if tank is None:
             tank = 0
-            queue.clear()
-        queue.append((i + 1) % n)
-    return queue[0]
+        tank += petrolpumps[i][0] - petrolpumps[i][1]
+        i = (i + 1) % n
+        if tank < 0:
+            tank, j = None, i
+    return i
 
 
 if __name__ == '__main__':
