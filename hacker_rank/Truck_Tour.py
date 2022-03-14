@@ -17,12 +17,12 @@ import sys
 
 def truckTour(petrolpumps):
     # O(n) - Adhoc
-    # res = tank = 0
-    # for i, (pet, dist) in enumerate(petrolpumps):
-    #     tank += pet - dist
-    #     if tank < 0:
-    #         res, tank = i + 1, 0
-    # return res
+    res = tank = 0
+    for i, (pet, dist) in enumerate(petrolpumps):
+        tank += pet - dist
+        if tank < 0:
+            res, tank = i + 1, 0
+    return res
 
     # O(n) - Queue
     # queue = deque()
@@ -50,12 +50,12 @@ def truckTour(petrolpumps):
     # return i
 
     # O(n) - Math
-    res = mn = tank = 0
-    for i, (pet, dist) in enumerate(petrolpumps):
-        if tank < mn:
-            res, mn = i, tank
-        tank += pet - dist
-    return res
+    # res = mn = tank = 0
+    # for i, (pet, dist) in enumerate(petrolpumps):
+    #     if tank < mn:
+    #         res, mn = i, tank
+    #     tank += pet - dist
+    # return res
 
 
 if __name__ == '__main__':
