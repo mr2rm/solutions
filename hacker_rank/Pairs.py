@@ -18,9 +18,10 @@ import sys
 
 
 def pairs(k, arr):
+    n, res = len(arr), 0
+
     # O(n) - Hash Table (`unordered_set` in C++)
     items = set(arr)
-    # res = 0
     # for x in arr:
     #     if x + k in items:
     #         res += 1
@@ -29,9 +30,8 @@ def pairs(k, arr):
     return res
 
     # O(nlogn) - Two Pointers
-    # n = len(arr)
     # arr.sort()
-    # res = j = 0
+    # j = 0
     # for x in arr:
     #     while j < n and arr[j] < x + k:
     #         j += 1
@@ -41,9 +41,8 @@ def pairs(k, arr):
     #         res += 1
     # return res
 
-    # O(nlogn) - Binary Search (`set` in C++)
+    # O(nlogn) - Binary Search Tree (`set` in C++)
     # arr.sort()
-    # n, res = len(arr), 0
     # for x in arr:
     #     j = bisect_left(arr, x + k)
     #     if j == n:
