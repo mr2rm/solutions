@@ -1,7 +1,6 @@
 #!/bin/python3
 
 from bisect import bisect_left
-from collections import defaultdict
 import math
 import os
 import random
@@ -19,6 +18,16 @@ import sys
 
 
 def pairs(k, arr):
+    # O(n) - Hash Table (`unordered_set` in C++)
+    items = set(arr)
+    # res = 0
+    # for x in arr:
+    #     if x + k in items:
+    #         res += 1
+    plus_k_items = set(x + k for x in arr)
+    res = len(items & plus_k_items)
+    return res
+
     # O(nlogn) - Two Pointers
     # n = len(arr)
     # arr.sort()
@@ -32,16 +41,16 @@ def pairs(k, arr):
     #         res += 1
     # return res
 
-    # O(nlogn) - Binary Search
-    arr.sort()
-    n, res = len(arr), 0
-    for x in arr:
-        j = bisect_left(arr, x + k)
-        if j == n:
-            break
-        if arr[j] == x + k:
-            res += 1
-    return res
+    # O(nlogn) - Binary Search (`set` in C++)
+    # arr.sort()
+    # n, res = len(arr), 0
+    # for x in arr:
+    #     j = bisect_left(arr, x + k)
+    #     if j == n:
+    #         break
+    #     if arr[j] == x + k:
+    #         res += 1
+    # return res
 
 
 if __name__ == '__main__':
