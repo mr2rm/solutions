@@ -14,34 +14,60 @@ import sys
 #
 
 
-def max_subseq(arr):
-    # O(n)
-    res = None
+def max_sum_subseq(arr):
+    # O(n) - Greedy
+
+    maxi, res = arr[0], 0
     for x in arr:
+        maxi = max(maxi, x)
         if x >= 0:
-            res = (0 if res is None else res) + x
-    if res is None:
-        res = max(arr)
+            res += x
+    if maxi < 0:
+        res = maxi
     return res
 
+    # res = None
+    # for x in arr:
+    #     if x >= 0:
+    #         res = (0 if res is None else res) + x
+    # if res is None:
+    #     res = max(arr)
+    # return res
 
-def max_subarr(arr):
-    # O(n)
-    res, curr = None, 0
-    for x in arr:
-        curr += x
-        if curr < 0:
-            curr = 0
-        elif res is None or curr > res:
-            res = curr
-    if res is None:
-        res = max(arr)
+
+def max_sum_subarr(arr):
+    # O(n) - Kadane (v2)
+    res = last = arr[0]
+    for x in arr[1:]:
+        if last < 0:
+            last = 0
+        last += x
+        res = max(res, last)
     return res
+
+    # O(n) - DP
+    # res = last = arr[0]
+    # for x in arr[1:]:
+    #     last = max(last + x, x)
+    #     res = max(res, last)
+    # return res
+
+    # O(n) - Kadane (v1)
+    # res, curr = None, 0
+    # for x in arr:
+    #     curr += x
+    #     if curr < 0:
+    #         curr = 0
+    #     elif res is None or curr > res:
+    #         res = curr
+    # if res is None:
+    #     res = max(arr)
+    # return res
 
 
 def maxSubarray(arr):
     # O(n)
-    return max_subarr(arr), max_subseq(arr)
+    return max_sum_subarr(arr), max_sum_subseq(arr)
 
 
 if __name__ == '__main__':
