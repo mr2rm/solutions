@@ -18,23 +18,21 @@ def max_subseq(arr):
     # O(n)
     res = None
     for x in arr:
-        if x < 0:
-            continue
-        res = (0 if res is None else res) + x
+        if x >= 0:
+            res = (0 if res is None else res) + x
     if res is None:
         res = max(arr)
     return res
 
 
-def max_substr(arr):
+def max_subarr(arr):
     # O(n)
     res, curr = None, 0
     for x in arr:
         curr += x
         if curr < 0:
             curr = 0
-            continue
-        if res is None or curr > res:
+        elif res is None or curr > res:
             res = curr
     if res is None:
         res = max(arr)
@@ -43,7 +41,7 @@ def max_substr(arr):
 
 def maxSubarray(arr):
     # O(n)
-    return max_substr(arr), max_subseq(arr)
+    return max_subarr(arr), max_subseq(arr)
 
 
 if __name__ == '__main__':
