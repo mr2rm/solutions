@@ -4,7 +4,7 @@ This repository contains my solutions for different problems of online judges an
 
 |        Online Judge         | Count |
 | :-------------------------: | :---: |
-| [HackerRank](./hacker_rank) |  19   |
+| [HackerRank](./hacker_rank) |  24   |
 |     [Kattis](./kattis)      |   6   |
 |      [Quera](./quera)       |   5   |
 | [Codeforces](./codeforces)  |   2   |
