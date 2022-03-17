@@ -31,25 +31,25 @@ def legoBlocks(n, m):
     # O(mlogn + m^2) - DP
 
     # O(n)
-    f = [0] * (m + 1)
-    f[0] = 1
+    row_dp = [0] * (m + 1)
+    row_dp[0] = 1
     for i in range(1, m + 1):
         for j in range(1, 4 + 1):
             if i - j >= 0:
-                f[i] = (f[i] + f[i - j]) % MOD
+                row_dp[i] = (row_dp[i] + row_dp[i - j]) % MOD
 
     # O(mlogn)
-    g = [pow(f[i], n) for i in range(m + 1)]
+    all_dp = [pow(row_dp[i], n) for i in range(m + 1)]
 
     # O(m^2)
-    h = [0] * (m + 1)
+    solid_dp = [0] * (m + 1)
     for i in range(m + 1):
         nvals = 0
         for j in range(1, i):
-            nvals = (nvals + h[j] * g[i - j]) % MOD
-        h[i] = (g[i] - nvals + MOD) % MOD
+            nvals = (nvals + solid_dp[j] * all_dp[i - j]) % MOD
+        solid_dp[i] = (all_dp[i] - nvals + MOD) % MOD
 
-    return h[m]
+    return solid_dp[m]
 
 
 if __name__ == '__main__':
