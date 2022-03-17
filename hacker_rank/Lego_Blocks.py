@@ -19,12 +19,22 @@ MOD = int(1e9 + 7)
 
 
 def pow(a, p):
-    if p == 0:
-        return 1
-    if p % 2 == 1:
-        return a * pow(a, p - 1) % MOD
-    x = pow(a, p // 2)
-    return x * x % MOD
+    # O(logp) - Recursive
+    # if p == 0:
+    #     return 1
+    # if p % 2 == 1:
+    #     return a * pow(a, p - 1) % MOD
+    # x = pow(a, p // 2)
+    # return x * x % MOD
+
+    # O(logp) - Iterative
+    res = 1
+    while p:
+        if p % 2 == 1:
+            res = res * a % MOD
+        a = a * a % MOD
+        p //= 2
+    return res
 
 
 def legoBlocks(n, m):
