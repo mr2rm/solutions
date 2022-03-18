@@ -1,6 +1,9 @@
+# O(qlogq)
+
 class MinHeap:
     def __init__(self):
         self.tree = []
+        self.index = {}
 
     @property
     def top(self):
@@ -16,13 +19,15 @@ class MinHeap:
                 break
             self.tree[p], self.tree[i] = self.tree[i], self.tree[p]
             i = p
+        self.index[v] = i
 
     def delete(self, v):
         last = self.tree.pop()
         if last == v:
             return
-        n, i = len(self.tree), self.tree.index(v)
+        i = self.index[v]  # self.tree.index(v)
         self.tree[i] = last
+        n = len(self.tree)
         while 2 * i + 1 < n:
             j = 2 * i + 1
             if j + 1 < n and self.tree[j + 1] < self.tree[j]:
