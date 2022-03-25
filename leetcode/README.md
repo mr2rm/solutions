@@ -1,5 +1,6 @@
 # [<img align="center" height="50" src="https://assets.leetcode.com/static_assets/public/webpack_bundles/images/logo-dark.e99485d9b.svg" alt="LeetCode Home">](https://leetcode.com/)
 
-|                             Problem                             |               Paradigm                | Level |                              Tutorial                              |         Solution          | Result |
-| :-------------------------------------------------------------: | :-----------------------------------: | :---: | :----------------------------------------------------------------: | :-----------------------: | :----: |
-| [group-anagrams](https://leetcode.com/problems/group-anagrams/) | Hash Table, Sorting, String (Anagram) |   3   | [Solution](https://leetcode.com/problems/group-anagrams/solution/) | [py](./Group_Anagrams.py) |   AC   |
+|                              Problem                              |               Paradigm                | Level |                              Tutorial                               |          Solution          | Result |
+| :---------------------------------------------------------------: | :-----------------------------------: | :---: | :-----------------------------------------------------------------: | :------------------------: | :----: |
+|  [group-anagrams](https://leetcode.com/problems/group-anagrams/)  | Hash Table, Sorting, String (Anagram) |   3   | [Solution](https://leetcode.com/problems/group-anagrams/solution/)  | [py](./Group_Anagrams.py)  |   AC   |
+| [add-two-numbers](https://leetcode.com/problems/add-two-numbers/) |           Linked List, Math           |   3   | [Solution](https://leetcode.com/problems/add-two-numbers/solution/) | [py](./Add_Two_Numbers.py) |   AC   |
