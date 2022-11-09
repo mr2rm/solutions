@@ -6,7 +6,7 @@ from bisect import insort_left, bisect_left
 
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
-        # 2 Pointers & Binary search - Time: O(nlogn), Space: O(n)
+        # 2-Pointers & Binary search - Time: O(nlogn), Space: O(n)
         # i, sorted_nums = 0, []
         # for j, x in enumerate(nums):
         #     insort_left(sorted_nums, x)
@@ -15,7 +15,7 @@ class Solution:
         #         i += 1
         # return j - i + 1
 
-        # 2 Pointers & Heap - Time: O(nlogn), Space: O(n)
+        # 2-Pointers & Heap - Time: O(nlogn), Space: O(n)
         # minq, maxq = [], []
         # i, res = 0, 0
         # for j, x in enumerate(nums):
@@ -30,7 +30,7 @@ class Solution:
         #     res = max(res, j - i + 1)
         # return res
 
-        # 2 Pointers & Sliding Window Max/Min - Time: O(n), Space: O(n)
+        # 2-Pointers & Sliding Window Max/Min - Time: O(n), Space: O(n)
         mini, maxi = deque(), deque()
         i = 0
         for j, x in enumerate(nums):
