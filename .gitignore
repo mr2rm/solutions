@@ -10,3 +10,4 @@ tempCodeRunnerFile.py
 node_modules/
 .venv/
 .cph/
+.DS_Store
