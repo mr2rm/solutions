@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 
 class Solution {
     private int solution1(int[] nums) {
@@ -22,7 +23,26 @@ class Solution {
         return res;
     }
 
+    private int solution2(int[] nums) {
+        // Prefix Sum, Hash Table - Time: O(n), Space: O(n)
+        int res = 0;
+        int count = 0;
+
+        HashMap<Integer, Integer> indexOfCount = new HashMap<>();
+        indexOfCount.put(0, -1);
+
+        for (int i = 0; i < nums.length; i++) {
+            count += (nums[i] == 0 ? -1 : 1);
+            if (indexOfCount.containsKey(count)) {
+                res = Math.max(res, i - indexOfCount.get(count));
+            } else {
+                indexOfCount.put(count, i);
+            }
+        }
+        return res;
+    }
+
     public int findMaxLength(int[] nums) {
-        return this.solution1(nums);
+        return this.solution2(nums);
     }
 }
