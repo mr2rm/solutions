@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.lang.Math;
 
 class Solution {
@@ -32,7 +34,31 @@ class Solution {
         return res.toArray(new int[res.size()][]);
     }
 
+    int[][] solution2(int[][] intervals, int[] newInterval) {
+        // Array, Sorting - Time: O(nlogn), Space: O(n)
+        ArrayList<int[]> arr = new ArrayList<>(Arrays.asList(intervals));
+        arr.add(newInterval);
+        arr.sort(Comparator.comparingInt(a -> a[0]));
+
+        ArrayList<int[]> res = new ArrayList<>();
+        res.add(arr.get(0));
+        for (int i = 1; i < arr.size(); i++) {
+            int[] thisInterval = arr.get(i);
+            int lastIndex = res.size() - 1;
+            int[] lastInterval = res.get(lastIndex);
+            if (thisInterval[0] > lastInterval[1]) {
+                res.add(thisInterval);
+                continue;
+            }
+
+            res.remove(lastIndex);
+            lastInterval[1] = Math.max(lastInterval[1], thisInterval[1]);
+            res.add(lastInterval);
+        }
+        return res.toArray(new int[res.size()][]);
+    }
+
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        return this.solution1(intervals, newInterval);
+        return this.solution2(intervals, newInterval);
     }
 }
