@@ -52,7 +52,7 @@ class Solution {
     }
 
     boolean solution1(ListNode head) {
-        // Linked List, Palindrome, Iterative - Time: O(n), Space: O(1)
+        // Linked List, Palindrome, Iterative, Two Pointers - Time: O(n), Space: O(1)
         ListNode middle = this.getMiddle(head);
         ListNode reverseHead = this.reverse(middle);
         return this.isEqual(head, reverseHead);
