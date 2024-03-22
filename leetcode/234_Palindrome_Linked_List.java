@@ -40,16 +40,25 @@ class Solution {
         return previous;
     }
 
-    public boolean isPalindrome(ListNode head) {
+    boolean isEqual(ListNode a, ListNode b) {
+        // Palindrome, Iterative - Time: O(n), Space: O(1)
+        while (a != null && b != null) {
+            if (a.val != b.val)
+                return false;
+            a = a.next;
+            b = b.next;
+        }
+        return true;
+    }
+
+    boolean solution1(ListNode head) {
         // Linked List, Palindrome, Iterative - Time: O(n), Space: O(1)
         ListNode middle = this.getMiddle(head);
         ListNode reverseHead = this.reverse(middle);
-        while (head != null && reverseHead != null) {
-            if (head.val != reverseHead.val)
-                return false;
-            head = head.next;
-            reverseHead = reverseHead.next;
-        }
-        return true;
+        return this.isEqual(head, reverseHead);
+    }
+
+    public boolean isPalindrome(ListNode head) {
+        return this.solution1(head);
     }
 }
