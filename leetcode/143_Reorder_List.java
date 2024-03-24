@@ -33,7 +33,7 @@ class Solution {
         // Slow-Fast, Iterative - Time: O(n), Space: O(1)
         ListNode slow = head;
         ListNode fast = head;
-        while (fast != null && fast.next != null) {
+        while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -43,8 +43,9 @@ class Solution {
     void solve(ListNode head) {
         // Iterative - Time: O(n), Space: O(1)
         ListNode middle = this.getMiddle(head);
-        ListNode tail = this.reverse(middle);
-        while (tail.next != null) {
+        ListNode tail = this.reverse(middle.next);
+        middle.next = null;
+        while (tail != null) {
             ListNode nextHead = head.next;
             ListNode nextTail = tail.next;
             head.next = tail;
