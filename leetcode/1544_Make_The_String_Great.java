@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 class Solution {
-    boolean isBadNeighbors(char a, char b) {
+    boolean areBadNeighbors(char a, char b) {
         return a != b && Character.toLowerCase(a) == Character.toLowerCase(b);
     }
 
@@ -9,7 +9,7 @@ class Solution {
         for (int i = 0; i + 1 < sb.length(); i++) {
             char a = sb.charAt(i);
             char b = sb.charAt(i + 1);
-            if (isBadNeighbors(a, b))
+            if (areBadNeighbors(a, b))
                 return i;
         }
 
@@ -37,16 +37,10 @@ class Solution {
         Stack<Character> stack = new Stack<>();
 
         for (char c : s.toCharArray()) {
-            stack.push(c);
-            while (stack.size() >= 2) {
-                char a = stack.pop();
-                char b = stack.pop();
-                if (isBadNeighbors(a, b))
-                    continue;
-
-                stack.push(b);
-                stack.push(a);
-                break;
+            if (!stack.isEmpty() && areBadNeighbors(c, stack.peek())) {
+                stack.pop();
+            } else {
+                stack.push(c);
             }
         }
 
