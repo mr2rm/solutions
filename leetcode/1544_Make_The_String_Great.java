@@ -16,6 +16,21 @@ class Solution {
         return -1;
     }
 
+    String solve3(String s) {
+        // Stack, String - Time: O(n), Space: O(n)
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : s.toCharArray()) {
+            if (!sb.isEmpty() && areBadNeighbors(c, sb.charAt(sb.length() - 1))) {
+                sb.deleteCharAt(sb.length() - 1);
+            } else {
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
+    }
+
     String solve2(String s) {
         // Brute Force - Time: O(n^2), Space: O(1)
         StringBuilder sb = new StringBuilder(s);
@@ -52,6 +67,6 @@ class Solution {
     }
 
     public String makeGood(String s) {
-        return solve2(s);
+        return solve3(s);
     }
 }
