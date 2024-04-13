@@ -1,4 +1,31 @@
 class Solution {
+    int solve2(int[] height) {
+        // Divide and Conquer - Time: O(n), Space: O(1)
+        int n = height.length;
+        int res = 0;
+
+        int maxIndex = 0;
+        for (int i = 1; i < n; i++) {
+            if (height[i] > height[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+
+        int leftMax = 0;
+        for (int i = 0; i < maxIndex; i++) {
+            leftMax = Math.max(leftMax, height[i]);
+            res += leftMax - height[i];
+        }
+
+        int rightMax = 0;
+        for (int i = n - 1; i > maxIndex; i--) {
+            rightMax = Math.max(rightMax, height[i]);
+            res += rightMax - height[i];
+        }
+
+        return res;
+    }
+
     int solve1(int[] height) {
         // Dynamic Programming - Time: O(n), Space: O(n)
         int n = height.length;
@@ -25,6 +52,6 @@ class Solution {
     }
 
     public int trap(int[] height) {
-        return solve1(height);
+        return solve2(height);
     }
 }
