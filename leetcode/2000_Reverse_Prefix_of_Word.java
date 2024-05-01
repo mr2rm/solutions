@@ -8,8 +8,22 @@ class Solution {
         return -1;
     }
 
+    String solve2(String word, char ch) {
+        // String - Time: O(n), Space: (1)
+        int idx = word.indexOf(ch);
+        if (idx == -1) {
+            return word;
+        }
+
+        String prefix = word.substring(0, idx + 1);
+        String suffix = word.substring(idx + 1);
+
+        String reversedPrefix = new StringBuilder(prefix).reverse().toString();
+        return reversedPrefix + suffix;
+    }
+
     String solve1(String word, char ch) {
-        // String, 2 Pointers - Time: O(n), Space: O(1)
+        // String, Two Pointers - Time: O(n), Space: O(1)
         int idx = findChar(word, ch);
         if (idx == -1) {
             return word;
@@ -27,6 +41,6 @@ class Solution {
     }
 
     public String reversePrefix(String word, char ch) {
-        return solve1(word, ch);
+        return solve2(word, ch);
     }
 }
