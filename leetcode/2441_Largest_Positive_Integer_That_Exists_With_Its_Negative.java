@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashSet;
 
 class Solution {
     int solve1(int[] nums) {
@@ -18,6 +19,21 @@ class Solution {
             }
         }
         return -1;
+    }
+
+    int solve2(int[] nums) {
+        // Hash Table - Time: O(n), Space: O(n)
+        int res = -1;
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int x : nums) {
+            if (set.contains(-x)) {
+                res = Math.max(res, Math.abs(x));
+            }
+            set.add(x);
+        }
+
+        return res;
     }
 
     public int findMaxK(int[] nums) {
