@@ -1,0 +1,7 @@
+# 1200 - 1299
+
+|                                                          Problem                                                          |     Paradigm      | Level |                                     Tutorial                                      |                           Solution                           | Result |
+| :-----------------------------------------------------------------------------------------------------------------------: | :---------------: | :---: | :-------------------------------------------------------------------------------: | :----------------------------------------------------------: | :----: |
+| [1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) |   Stack, String   |   3   |                                         -                                         | [java](./1249_Minimum_Remove_to_Make_Valid_Parentheses.java) |   AC   |
+|              [1289. Minimum Falling Path Sum II](https://leetcode.com/problems/minimum-falling-path-sum-ii/)              |        DP         |   3   | [Editorial](https://leetcode.com/problems/minimum-falling-path-sum-ii/editorial/) |       [java](./1289_Minimum_Falling_Path_Sum_II.java)        |   AC   |
+|                   [1219. Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold/)                   | DFS, Backtracking |   3   |   [Editorial](https://leetcode.com/problems/path-with-maximum-gold/editorial/)    |          [java](./1219_Path_with_Maximum_Gold.java)          |   AC   |
