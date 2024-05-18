@@ -1,0 +1,7 @@
+# 900 - 999
+
+|                                                 Problem                                                  |                 Paradigm                 | Level |                                        Tutorial                                        |                      Solution                       | Result |
+| :------------------------------------------------------------------------------------------------------: | :--------------------------------------: | :---: | :------------------------------------------------------------------------------------: | :-------------------------------------------------: | :----: |
+|        [930. Binary Subarrays with Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)        |          Prefix Sum, Hash Table          |   3   |    [Editorial](https://leetcode.com/problems/binary-subarrays-with-sum/editorial/)     |      [py](./930_Binary_Subarrays_with_Sum.py)       |   AC   |
+| [950. Reveal Cards In Increasing Order](https://leetcode.com/problems/reveal-cards-in-increasing-order/) | Two Pointers, Queue, Sorting, Simulation |   3   | [Editorial](https://leetcode.com/problems/reveal-cards-in-increasing-order/editorial/) | [java](./950_Reveal_Cards_In_Increasing_Order.java) |   AC   |
+|  [979. Distribute Coins in Binary Tree](https://leetcode.com/problems/distribute-coins-in-binary-tree/)  |                Tree, DFS                 |   3   | [Editorial](https://leetcode.com/problems/distribute-coins-in-binary-tree/editorial/)  | [java](./979_Distribute_Coins_in_Binary_Tree.java)  |   AC   |
