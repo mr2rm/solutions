@@ -1,0 +1,9 @@
+# 100 - 199
+
+|                                         Problem                                          |               Paradigm               | Level | Tutorial |                  Solution                   | Result |
+| :--------------------------------------------------------------------------------------: | :----------------------------------: | :---: | :------: | :-----------------------------------------: | :----: |
+| [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) |              Tree, DFS               |   3   |          | [java](./129_Sum_Root_to_Leaf_Numbers.java) |   AC   |
+|            [140. Word Break II](https://leetcode.com/problems/word-break-ii/)            |             Backtracking             |   4   |          |      [java](./140_Work_Break_II.java)       |   AC   |
+|             [143. Reorder List](https://leetcode.com/problems/reorder-list/)             | Linked List, Iterative, Two Pointers |   3   |          |       [java](./143_Reorder_List.java)       |   AC   |
+|  [165. Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/)  |         Two Pointers, String         |   2   |          | [java](./165_Compare_Version_Numbers.java)  |   AC   |
+|             [174. Dungeon Game](https://leetcode.com/problems/dungeon-game/)             |                  DP                  |   5   |          |         [py](./174_Dungeon_Game.py)         |   AC   |
