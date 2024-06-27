@@ -1,0 +1,6 @@
+# 1700 - 1799
+
+|                                                        Problem                                                        |         Paradigm         | Level |                                           Tutorial                                           |                          Solution                          | Result |
+| :-------------------------------------------------------------------------------------------------------------------: | :----------------------: | :---: | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------: | :----: |
+| [1700. Number of Students Unable to Eat Lunch](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/) | Stack, Queue, Simulation |   2   | [Editorial](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/editorial/) | [java](./1700_Number_of_Students_Unable_to_Eat_Lunch.java) |   AC   |
+|              [1791. Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph/)              |      Graph, Greedy       |   1   |       [Editorial](https://leetcode.com/problems/find-center-of-star-graph/editorial/)        |       [java](./1791_Find_Center_of_Star_Graph.java)        |   AC   |
