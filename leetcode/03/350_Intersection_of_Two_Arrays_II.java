@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,7 +43,30 @@ class Solution {
         return res.stream().mapToInt(i -> i).toArray();
     }
 
+    int[] solve3(int[] nums1, int[] nums2) {
+        // Sorting, Two Pointers - Time: O(nlogn), Space: O(n)
+        int n = nums1.length;
+        int m = nums2.length;
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        ArrayList<Integer> res = new ArrayList<>();
+        int p1 = 0, p2 = 0;
+        while (p1 < n && p2 < m) {
+            while (p2 < m && nums2[p2] < nums1[p1]) {
+                p2++;
+            }
+            if (p2 < m && nums2[p2] == nums1[p1]) {
+                res.add(nums1[p1]);
+                p2++;
+            }
+            p1++;
+        }
+
+        return res.stream().mapToInt(i -> i).toArray();
+    }
+
     public int[] intersect(int[] nums1, int[] nums2) {
-        return solve2(nums1, nums2);
+        return solve3(nums1, nums2);
     }
 }
