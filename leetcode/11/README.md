@@ -1,0 +1,5 @@
+# 1100 - 1199
+
+|                                                                     Problem                                                                     |   Paradigm    | Level |                                                 Tutorial                                                  |                                Solution                                 | Result |
+| :---------------------------------------------------------------------------------------------------------------------------------------------: | :-----------: | :---: | :-------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------: | :----: |
+| [1190. Reverse Substrings Between Each Pair of Parentheses](https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/) | String, Stack |   3   | [Editorial](https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/editorial/) | [java](./1190_Reverse_Substrings_Between_Each_Pair_of_Parentheses.java) |   AC   |
