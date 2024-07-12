@@ -1,22 +1,22 @@
 import java.util.Stack;
-import java.util.stream.Collectors;
 
 class Solution {
     String remove(String s, String t) {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
-            stack.add(c);
-            while (stack.size() >= 2) {
-                int n = stack.size();
-                if (stack.get(n - 1) == t.charAt(1) && stack.get(n - 2) == t.charAt(0)) {
-                    stack.pop();
-                    stack.pop();
-                } else {
-                    break;
-                }
+            if (c == t.charAt(1) && !stack.isEmpty() && stack.peek() == t.charAt(0)) {
+                stack.pop();
+            } else {
+                stack.add(c);
             }
         }
-        return stack.stream().map(String::valueOf).collect(Collectors.joining());
+
+        // return stack.stream().map(String::valueOf).collect(Collectors.joining());
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) {
+            sb.append(stack.pop());
+        }
+        return sb.reverse().toString();
     }
 
     int calculatePoints(String original, String updated, int points) {
@@ -26,17 +26,16 @@ class Solution {
 
     public int maximumGain(String s, int x, int y) {
         // Stack, Greed - Time: O(n), Space: O(n)
-        String t1 = "ab", t2 = "ba";
-        int p1 = x, p2 = y;
-        if (y > x) {
-            t1 = "ba";
-            p1 = y;
-            t2 = "ab";
-            p2 = x;
-        }
+        int res = 0;
 
+        String t1 = x > y ? "ab" : "ba";
         String s1 = remove(s, t1);
+        res += calculatePoints(s, s1, Math.max(x, y));
+
+        String t2 = x > y ? "ba" : "ab";
         String s2 = remove(s1, t2);
-        return calculatePoints(s, s1, p1) + calculatePoints(s1, s2, p2);
+        res += calculatePoints(s1, s2, Math.min(x, y));
+
+        return res;
     }
 }
