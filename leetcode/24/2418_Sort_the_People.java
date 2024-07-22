@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 class Solution {
     void swap(String[] names, int[] heights, int i, int j) {
@@ -10,7 +13,7 @@ class Solution {
         heights[j] = tempHeight;
     }
 
-    public String[] sortPeople(String[] names, int[] heights) {
+    String[] solve1(String[] names, int[] heights) {
         // Array, Sorting - Time: O(n^2), Space: O(1)
         int n = names.length;
         for (int i = 0; i < n; i++) {
@@ -21,5 +24,26 @@ class Solution {
             }
         }
         return names;
+    }
+
+    String[] solve2(String[] names, int[] heights) {
+        // Hash Table, Sorting - Time: O(nlogn), Space: O(n)
+        int n = names.length;
+
+        Map<Integer, String> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(heights[i], names[i]);
+        }
+
+        Arrays.sort(heights);
+        for (int i = 0; i < n; i++) {
+            names[i] = map.get(heights[n - i - 1]);
+        }
+
+        return names;
+    }
+
+    public String[] sortPeople(String[] names, int[] heights) {
+        return solve2(names, heights);
     }
 }
