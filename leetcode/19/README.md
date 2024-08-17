@@ -1,0 +1,7 @@
+# 1900 - 1999
+
+|                                                    Problem                                                    |           Paradigm            | Level |                                         Tutorial                                         |                        Solution                        | Result |
+| :-----------------------------------------------------------------------------------------------------------: | :---------------------------: | :---: | :--------------------------------------------------------------------------------------: | :----------------------------------------------------: | :----: |
+|     [1915. Number of Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings/)     | Bit Manipulation, Bitmask, DP |   5   |   [Editorial](https://leetcode.com/problems/number-of-wonderful-substrings/editorial/)   |   [java](./1915_Number_of_Wonderful_Substrings.java)   |   AC   |
+|       [1971. Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/)       |   Connected Component, DFS    |   2   |                                                                                          |    [java](./1971_Find_if_Path_Exists_in_Graph.java)    |   AC   |
+| [1937. Maximum Number of Points with Cost](https://leetcode.com/problems/maximum-number-of-points-with-cost/) |              DP               |   3   | [Editorial](https://leetcode.com/problems/maximum-number-of-points-with-cost/editorial/) | [java](./1937_Maximum_Number_of_Points_with_Cost.java) |   AC   |
