@@ -3,21 +3,22 @@ import java.util.Arrays;
 class Solution {
     int solve1(int[] chalk, int k) {
         // Simulation, Array - Time: O(n), Space: O(1)
-        long sumOfChalk = 0;
-        for (int c : chalk) {
-            sumOfChalk += c;
+        long sum = 0;
+        for (int x : chalk) {
+            sum += x;
+            if (sum > k) {
+                break;
+            }
         }
-        long reminder = k % sumOfChalk;
 
-        int res = -1;
+        long reminder = k % sum;
         for (int i = 0; i < chalk.length; i++) {
             if (chalk[i] > reminder) {
-                res = i;
-                break;
+                return i;
             }
             reminder -= chalk[i];
         }
-        return res;
+        return 0;
     }
 
     int solve2(int[] chalk, int k) {
