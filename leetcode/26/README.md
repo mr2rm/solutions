@@ -1,0 +1,5 @@
+# 2600 - 2699
+
+|                                                                 Problem                                                                 |   Paradigm    | Level |                                               Tutorial                                                |                              Solution                               | Result |
+| :-------------------------------------------------------------------------------------------------------------------------------------: | :-----------: | :---: | :---------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------: | :----: |
+| [2696. Minimum String Length After Removing Substrings](https://leetcode.com/problems/minimum-string-length-after-removing-substrings/) | String, Stack |   2   | [Editorial](https://leetcode.com/problems/minimum-string-length-after-removing-substrings/editorial/) | [java](./2696_Minimum_String_Length_After_Removing_Substrings.java) |   AC   |
