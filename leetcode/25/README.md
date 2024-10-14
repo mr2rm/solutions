@@ -1,0 +1,5 @@
+# 2500 - 2599
+
+|                                                           Problem                                                           |        Paradigm        | Level |                                            Tutorial                                             |                           Solution                            | Result |
+| :-------------------------------------------------------------------------------------------------------------------------: | :--------------------: | :---: | :---------------------------------------------------------------------------------------------: | :-----------------------------------------------------------: | :----: |
+| [2530. Maximal Score After Applying K Operations](https://leetcode.com/problems/maximal-score-after-applying-k-operations/) | Greedy, Priority Queue |   3   | [Editorial](https://leetcode.com/problems/maximal-score-after-applying-k-operations/editorial/) | [java](./2530_Maximal_Score_After_Applying_K_Operations.java) |   AC   |
