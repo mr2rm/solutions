@@ -1,56 +1,50 @@
-import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Queue;
+
+record Pair(char ch, int count) {
+}
 
 class Solution {
     public String longestDiverseString(int a, int b, int c) {
-        // NOTE: Greedy, Priority Queue - Time: O(n), Space: O(n)
-        PriorityQueue<int[]> pq = new PriorityQueue<>((x, y) -> Integer.compare(y[1], x[1]));
+        // NOTE: Greedy, Priority Queue - Time: O(a + b + c), Space: O(1)
+        StringBuilder res = new StringBuilder();
+        PriorityQueue<Pair> pq = new PriorityQueue<>(
+                (x, y) -> Integer.compare(y.count(), x.count()));
         if (a > 0) {
-            pq.add(new int[] { 'a', a });
+            pq.add(new Pair('a', a));
         }
         if (b > 0) {
-            pq.add(new int[] { 'b', b });
+            pq.add(new Pair('b', b));
         }
         if (c > 0) {
-            pq.add(new int[] { 'c', c });
+            pq.add(new Pair('c', c));
         }
 
-        StringBuilder sb = new StringBuilder();
-        int lastChar = 0, lastCharCount = 0;
         while (!pq.isEmpty()) {
-            Queue<int[]> tmp = new LinkedList<>();
-            boolean found = false;
-            int[] next = null;
-            while (!pq.isEmpty()) {
-                next = pq.poll();
-                if (next[0] != lastChar || lastCharCount < 2) {
-                    found = true;
+            Pair top = pq.poll();
+            int count = top.count();
+
+            if (res.length() >= 2
+                    && res.charAt(res.length() - 1) == top.ch()
+                    && res.charAt(res.length() - 2) == top.ch()) {
+                if (pq.isEmpty()) {
                     break;
                 }
-                tmp.add(next);
+
+                Pair next = pq.poll();
+                res.append(next.ch());
+                if (next.count() - 1 > 0) {
+                    pq.add(new Pair(next.ch(), next.count() - 1));
+                }
+            } else {
+                res.append(top.ch());
+                count--;
             }
 
-            if (!found) {
-                break;
-            }
-
-            if (next[0] != lastChar) {
-                lastCharCount = 0;
-            }
-            lastChar = next[0];
-            lastCharCount++;
-            sb.append((char) lastChar);
-
-            if (next[1] - 1 > 0) {
-                tmp.add(new int[] { next[0], next[1] - 1 });
-            }
-            while (!tmp.isEmpty()) {
-                int[] x = tmp.poll();
-                pq.add(x);
+            if (count > 0) {
+                pq.add(new Pair(top.ch(), count));
             }
         }
 
-        return sb.toString();
+        return res.toString();
     }
 }
