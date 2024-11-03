@@ -1,5 +1,15 @@
 class Solution {
-    public boolean rotateString(String s, String goal) {
+    boolean solve2(String s, String goal) {
+        // String - Time: O(n^2), Space: O(1)
+        if (s.length() != goal.length()) {
+            return false;
+        }
+
+        String doubled = s + s;
+        return doubled.contains(goal);
+    }
+
+    boolean solve1(String s, String goal) {
         // String - Time: O(n^2), Space: O(1)
         int n = s.length();
         if (goal.length() != n) {
@@ -21,5 +31,9 @@ class Solution {
             }
         }
         return false;
+    }
+
+    public boolean rotateString(String s, String goal) {
+        return solve2(s, goal);
     }
 }
