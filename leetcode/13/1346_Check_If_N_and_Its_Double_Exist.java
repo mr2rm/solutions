@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,10 +40,43 @@ class Solution {
             set.add(x);
         }
         return false;
+    }
 
+
+    /**
+     * Set - Time: O(nlogn), Space: O(1)
+     * 
+     * @param arr Array of integers
+     * @return Whether there are i and j indices that arr[i] == 2 * arr[j]
+     */
+    private boolean solve3(int[] arr) {
+        Arrays.sort(arr);
+        int i = 0, j = 1;
+        while (j < arr.length) {
+            if (arr[j] < 0) {
+                if (i != j && 2 * arr[j] == arr[i]) {
+                    return true;
+                }
+                if (2 * arr[j] > arr[i]) {
+                    i++;
+                } else {
+                    j++;
+                }
+            } else {
+                if (i != j && 2 * arr[i] == arr[j]) {
+                    return true;
+                }
+                if (2 * arr[i] > arr[j]) {
+                    j++;
+                } else {
+                    i++;
+                }
+            }
+        }
+        return false;
     }
 
     public boolean checkIfExist(int[] arr) {
-        return solve2(arr);
+        return solve3(arr);
     }
 }
