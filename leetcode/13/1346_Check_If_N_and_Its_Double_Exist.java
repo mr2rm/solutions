@@ -44,13 +44,14 @@ class Solution {
 
 
     /**
-     * Set - Time: O(nlogn), Space: O(1)
+     * Sorting, Two Pointers - Time: O(nlogn), Space: O(1)
      * 
      * @param arr Array of integers
      * @return Whether there are i and j indices that arr[i] == 2 * arr[j]
      */
     private boolean solve3(int[] arr) {
         Arrays.sort(arr);
+
         int i = 0, j = 1;
         while (j < arr.length) {
             if (arr[j] < 0) {
@@ -77,6 +78,6 @@ class Solution {
     }
 
     public boolean checkIfExist(int[] arr) {
-        return solve3(arr);
+        return solve2(arr);
     }
 }
